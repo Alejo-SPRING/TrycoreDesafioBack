@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="20260811160902-1" author="Alejo">
+        <createTable tableName="activities">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="name" type="VARCHAR(25)"></column>
+            <column name="total_planned_budget" type="DECIMAL(10, 0)"></column>
+            <column name="percentage_advance_planned" type="BIGINT" autoIncrement="true"></column>
+            <column name="percentage_advance_real" type="BIGINT" autoIncrement="true"></column>
+            <column name="actual_cost_incurred" type="DECIMAL(10, 0)"></column>
+            <column name="proyect_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="DATETIME"></column>
+            <column name="last_modified_date" type="DATETIME"></column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

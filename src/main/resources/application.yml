@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: TrycoreDesafioBack
+  profiles:
+    active: dev
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: none
+springdoc:
+  show-login-endpoint: true
