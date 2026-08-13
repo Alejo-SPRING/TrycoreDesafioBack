@@ -8,7 +8,7 @@ import trycore.trycoredesafioback.domain.model.Proyect;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {ActivityDtoMapper.class, CalculateIndicatorsDtoMapper.class})
 public interface ProyectDtoMapper {
     ProyectDataDTO toDto(Proyect proyect);
 

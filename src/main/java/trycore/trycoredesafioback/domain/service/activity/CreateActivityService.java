@@ -3,18 +3,19 @@ package trycore.trycoredesafioback.domain.service.activity;
 import lombok.RequiredArgsConstructor;
 import trycore.trycoredesafioback.domain.exception.ApiException;
 import trycore.trycoredesafioback.domain.exception.MessageError;
+import trycore.trycoredesafioback.domain.model.Activity;
 import trycore.trycoredesafioback.domain.repository.ActivityRepository;
 
 @RequiredArgsConstructor
-public class DeleteActivity {
+public class CreateActivityService {
 
     private final ActivityRepository activityRepository;
 
-    public void delete(Long id) throws ApiException {
-        if(!activityRepository.isExist(id)) {
-            throw new ApiException(MessageError.ACTIVITY_NOT_FOUND);
+    public Activity save(Activity activity) throws ApiException {
+        if(activityRepository.isExist(activity.getName())) {
+            throw new ApiException(MessageError.ACTIVITY_ALREADY);
         }
-        activityRepository.delete(id);
+        return activityRepository.save(activity);
     }
 
 }

@@ -9,10 +9,10 @@ import trycore.trycoredesafioback.application.mapper.ProyectDtoMapper;
 import trycore.trycoredesafioback.domain.exception.ApiException;
 import trycore.trycoredesafioback.domain.model.Proyect;
 import trycore.trycoredesafioback.domain.repository.ProyectRepository;
-import trycore.trycoredesafioback.domain.service.proyect.CreateProyect;
-import trycore.trycoredesafioback.domain.service.proyect.DeleteProyect;
-import trycore.trycoredesafioback.domain.service.proyect.FindProyect;
-import trycore.trycoredesafioback.domain.service.proyect.UpdateProyect;
+import trycore.trycoredesafioback.domain.service.proyect.CreateProyectService;
+import trycore.trycoredesafioback.domain.service.proyect.DeleteProyectService;
+import trycore.trycoredesafioback.domain.service.proyect.FindProyectService;
+import trycore.trycoredesafioback.domain.service.proyect.UpdateProyectService;
 
 import java.util.List;
 
@@ -22,17 +22,17 @@ public class ProyectService {
 
     private final ProyectRepository proyectRepository;
     private final ProyectDtoMapper proyectDtoMapper;
-    private CreateProyect createProyect;
-    private FindProyect findProyect;
-    private DeleteProyect deleteProyect;
-    private UpdateProyect updateProyect;
+    private CreateProyectService createProyect;
+    private FindProyectService findProyect;
+    private DeleteProyectService deleteProyect;
+    private UpdateProyectService updateProyect;
 
     @PostConstruct
     public void init() {
-        createProyect = new CreateProyect(proyectRepository);
-        updateProyect = new UpdateProyect(proyectRepository);
-        findProyect = new FindProyect(proyectRepository);
-        deleteProyect = new DeleteProyect(proyectRepository);
+        createProyect = new CreateProyectService(proyectRepository);
+        updateProyect = new UpdateProyectService(proyectRepository);
+        findProyect = new FindProyectService(proyectRepository);
+        deleteProyect = new DeleteProyectService(proyectRepository);
     }
 
     public ProyectDataDTO create(ProyectDTO proyectDTO) throws ApiException {
