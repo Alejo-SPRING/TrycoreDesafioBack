@@ -5,9 +5,12 @@ spring:
     active: dev
   liquibase:
     enabled: true
-    change-log: classpath:changelog-master.xml
+    change-log: classpath:liquibase/changelog-master.xml
   jpa:
     hibernate:
       ddl-auto: none
 springdoc:
   show-login-endpoint: true
+logging:
+  level:
+    org.springframework.boot.autoconfigure.liquibase: DEBUG
