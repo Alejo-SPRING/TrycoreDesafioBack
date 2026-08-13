@@ -10,10 +10,10 @@ import trycore.trycoredesafioback.domain.exception.ApiException;
 import trycore.trycoredesafioback.domain.model.Activity;
 import trycore.trycoredesafioback.domain.repository.ActivityRepository;
 import trycore.trycoredesafioback.domain.repository.ProyectRepository;
-import trycore.trycoredesafioback.domain.service.activity.CreateActivity;
-import trycore.trycoredesafioback.domain.service.activity.DeleteActivity;
-import trycore.trycoredesafioback.domain.service.activity.FindActivity;
-import trycore.trycoredesafioback.domain.service.activity.UpdateActivity;
+import trycore.trycoredesafioback.domain.service.activity.CreateActivityService;
+import trycore.trycoredesafioback.domain.service.activity.DeleteActivityService;
+import trycore.trycoredesafioback.domain.service.activity.FindActivityService;
+import trycore.trycoredesafioback.domain.service.activity.UpdateActivityService;
 
 import java.util.List;
 
@@ -24,17 +24,17 @@ public class ActivityService {
     private final ActivityRepository activityRepository;
     private final ActivityDtoMapper activityDtoMapper;
     private final ProyectRepository proyectRepository;
-    private CreateActivity createActivity;
-    private DeleteActivity deleteActivity;
-    private FindActivity findActivity;
-    private UpdateActivity updateActivity;
+    private CreateActivityService createActivity;
+    private DeleteActivityService deleteActivity;
+    private FindActivityService findActivity;
+    private UpdateActivityService updateActivity;
 
     @PostConstruct
     public void init() {
-        createActivity = new CreateActivity(activityRepository);
-        deleteActivity = new DeleteActivity(activityRepository);
-        findActivity = new FindActivity(activityRepository, proyectRepository);
-        updateActivity = new UpdateActivity(activityRepository);
+        createActivity = new CreateActivityService(activityRepository);
+        deleteActivity = new DeleteActivityService(activityRepository);
+        findActivity = new FindActivityService(activityRepository, proyectRepository);
+        updateActivity = new UpdateActivityService(activityRepository);
     }
 
     public ActivityDataDTO create(ActivityDTO activityDTO) throws ApiException {

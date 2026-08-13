@@ -1,5 +1,6 @@
 package trycore.trycoredesafioback.infraestructure.jpa.repository;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -15,4 +16,8 @@ public interface ActivityDataRepository extends CrudRepository<ActivityEntity, L
 
     @Query("SELECT a FROM ActivityEntity a INNER JOIN a.proyect p WHERE p.id = :proyectId")
     List<ActivityEntity> findByProyectId(@Param("proyectId") Long proyectId);
+
+    @Query("SELECT a FROM ActivityEntity a INNER JOIN a.proyect p WHERE p.id IN :proyectsIds")
+    List<ActivityEntity> findByProyects(List<Long> proyectsIds);
+
 }

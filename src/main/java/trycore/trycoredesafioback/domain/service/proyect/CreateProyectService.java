@@ -7,13 +7,15 @@ import trycore.trycoredesafioback.domain.model.Proyect;
 import trycore.trycoredesafioback.domain.repository.ProyectRepository;
 
 @RequiredArgsConstructor
-public class UpdateProyect {
+public class CreateProyectService {
+
     private final ProyectRepository proyectRepository;
 
     public Proyect save(Proyect proyect) throws ApiException {
-        if (!proyectRepository.isExist(proyect.getId())) {
-            throw new ApiException(MessageError.PROYECT_NOT_FOUND);
+        if(proyectRepository.isExist(proyect.getName())) {
+            throw new ApiException(MessageError.PROYECT_ALREADY);
         }
         return proyectRepository.save(proyect);
     }
+
 }

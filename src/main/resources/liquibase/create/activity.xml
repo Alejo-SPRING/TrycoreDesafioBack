@@ -13,8 +13,8 @@
             </column>
             <column name="name" type="VARCHAR(25)"></column>
             <column name="total_planned_budget" type="DECIMAL(10, 0)"></column>
-            <column name="percentage_advance_planned" type="BIGINT" autoIncrement="true"></column>
-            <column name="percentage_advance_real" type="BIGINT" autoIncrement="true"></column>
+            <column name="percentage_advance_planned" type="BIGINT"></column>
+            <column name="percentage_advance_real" type="BIGINT"></column>
             <column name="actual_cost_incurred" type="DECIMAL(10, 0)"></column>
             <column name="proyect_id" type="BIGINT">
                 <constraints nullable="false"/>

@@ -7,15 +7,13 @@ import trycore.trycoredesafioback.domain.model.Activity;
 import trycore.trycoredesafioback.domain.repository.ActivityRepository;
 
 @RequiredArgsConstructor
-public class CreateActivity {
-
+public class UpdateActivityService {
     private final ActivityRepository activityRepository;
 
     public Activity save(Activity activity) throws ApiException {
-        if(activityRepository.isExist(activity.getName())) {
-            throw new ApiException(MessageError.ACTIVITY_ALREADY);
+        if (!activityRepository.isExist(activity.getId())) {
+            throw new ApiException(MessageError.ACTIVITY_NOT_FOUND);
         }
         return activityRepository.save(activity);
     }
-
 }
